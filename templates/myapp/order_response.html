@@ -1,0 +1,7 @@
+{% extends "myapp/base.html" %}
+<h1>{% block myhdg %}Hello {{ client.username }} {% endblock %}</h1>
+    {% block body_block %}
+        {{ msg }}
+<p><a href="{%url 'index'%}">Main page</a></p>
+
+ {% endblock %}

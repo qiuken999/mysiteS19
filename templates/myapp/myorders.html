@@ -1,0 +1,21 @@
+{% extends "myapp/base.html" %}
+{#<h1>{% block myhdg %}Hello User {% endblock %}</h1>#}
+    {% block body_block %}
+        {% if  user.is_authenticated  %}
+            {% if orderlist %}
+                <br><br>
+                <p>Product：{{ orderlist.product }}</p>
+                <p>Client：{{ orderlist.client }}</p>
+                <p>Number Units：{{ orderlist.num_units }}</p>
+                <p>Order Status：{{ orderlist.order_status }}</p>
+                <p>Status Date：{{ orderlist.status_date }}</p>
+            {% else %}
+                <p>  {{ msgNotOrder }} </p>
+            {% endif %}
+        {% else %}
+            <p>  {{ msgNotUser }} </p>
+        {% endif %}
+
+<p><a href="{%url 'index'%}">Main page</a></p>
+
+    {% endblock %}

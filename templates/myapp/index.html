@@ -1,0 +1,22 @@
+{% extends 'myapp/base.html' %}
+
+{#<h1>{% block myhdg %}Hello Sec2_Group1 {% endblock %}</h1>#}
+
+{% block body_block %}
+    {% if cat_list %}
+        <h2>List of Categories</h2>
+        <ol>
+            {% for cat in cat_list %}
+                <li> {{ cat.name}} </li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available categories!</strong>
+    {% endif %}
+
+{#    <p>Session Info: {{ lastlogin }}</p>#}
+    <p><a href="{% url 'about' %}">About page</a></p>
+{#    <li class="hbar1"><a href = "/myapp/products/">Find out products</a><br/></li>#}
+{#    <li class="hbar1"><a href = "{%url 'index'%}">Return to main page</a><br/></li>#}
+{% endblock %}

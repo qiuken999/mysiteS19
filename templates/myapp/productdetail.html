@@ -1,0 +1,22 @@
+{% extends "myapp/base.html" %}
+<h1>{% block myhdg %}Hello User {% endblock %}</h1>
+    {% block body_block %}
+        <p>Name：{{ item.name }}</p>
+        <p>Price：{{ item.price }}</p>
+        <p>Interested Num：{{ item.interested }}</p>
+        <p>Available：{{ item.available }}</p>
+
+     <form action="/myapp/product/{{item.id}}" method="post">
+    {% csrf_token %}
+        <p>Interested：{{ form.interested }}</p>
+        <p>Quantity：{{ form.quantity }}</p>
+        <p>Comment：{{ form.comments }}</p>
+        <input type="submit" value="done" />
+    </form>
+{% if  item.available == 0 %}
+    <p> {{ item.name }} is not available</p>
+{% endif %}
+
+<p><a href="{%url 'index'%}">Main page</a></p>
+
+    {% endblock %}
